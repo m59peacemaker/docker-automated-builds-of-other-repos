@@ -36,12 +36,11 @@ Look at the files and scripts in this repo as a reference for the steps below. I
   ```sh
   # if you don't have travis in your environment and want to use docker instead:
   docker run -it \
-    -e GITHUB_TOKEN={YOUR_TOKEN_HERE} \
     -v $PWD:/project \
     --workdir /project \
     ruby \
     /bin/sh -c \
-      'gem install travis && travis encrypt --add --no-interactive GITHUB_TOKEN=$GITHUB_TOKEN'
+      'gem install travis && travis encrypt --add --no-interactive GITHUB_TOKEN={YOUR_TOKEN_HERE}'
   ```
 - Create a script that gets the latest release of the source project
 - Setup a travic CI cron job that clones your GitHub repo and checks out a branch dedicated to automated builds. Use `https://$GITHUB_TOKEN@github.com/$REPO.git` as the remote url. Check that the branch has a tag corresponding to the latest version of the source repo. If not, do your build step if you have one, make a commit, tag it, and push that updated branch to the GitHub repo. This will trigger the docker automated build.
