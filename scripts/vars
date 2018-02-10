@@ -1,0 +1,10 @@
+#!/bin/sh
+
+# GitHub or Dockerhub name/project of the source project you want to keep up-to-date-with
+SOURCE="{NAMESPACE_HERE}/{PROJECT_HERE}"
+
+# Your GitHub name/project for this project
+REPO="{NAMESPACE_HERE}/{PROJECT_HERE}"
+
+# docker image name/project for local/dev builds
+IMAGE="{NAMESPACE_HERE/{PROJECT_HERE}"
