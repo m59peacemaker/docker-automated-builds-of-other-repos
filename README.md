@@ -8,9 +8,9 @@ You have dockerized someone else's project (source repo) and want to keep a dock
 
 Setup a GitHub repo with an automated system that updates it when the source repo is updated. Setup the Dockerhub automated build on your GitHub repo.
 
-Source repo releases new version
-  -> GitHub repo job discovers new version of source repo and updates a branch of its own repo accordingly
-  -> Dockerhub automated build is triggered
+- Source repo releases new version
+- -> GitHub repo job discovers new version of source repo and updates a branch of its own repo accordingly
+- -> Dockerhub automated build is triggered
 
 ## specific implementation
 
