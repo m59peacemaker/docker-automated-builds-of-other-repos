@@ -31,7 +31,7 @@ Look at the files and scripts in this repo as a reference for the steps below. I
 - Generate a [personal access token for GitHub](https://github.com/settings/tokens) with the "public_repo" permission. I name the token "CI-{REPO_NAME_HERE}".
 - Encrypt the token into .travis.yml
   ```sh
-  travis encrypt GITHUB_TOKEN={YOUR_TOKEN_HERE} --add
+  travis encrypt --add --no-interactive GITHUB_TOKEN={YOUR_TOKEN_HERE}
   ```
   ```sh
   # if you don't have travis in your environment and want to use docker instead:
