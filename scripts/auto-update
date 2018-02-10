@@ -3,6 +3,8 @@
 # exit on any errors
 set -e
 
+. ./scripts/vars
+
 LATEST_VERSION="$(./scripts/latest-version)"
 
 git clone --no-checkout https://$GITHUB_TOKEN@github.com/$REPO.git dist
