@@ -5,3 +5,4 @@ VERSION="$1"
 mkdir -p dist
 
 # build and/or copy relevant files into dist/
+cp .travis.yml dist/
