@@ -23,11 +23,11 @@ Look at the files and scripts in this repo as a reference for the steps below. I
 
   Push Type  Name  Dockerfile Location  Docker Tag
 
-  Tag        /.*/  /                    (Same as tag)
   Tag        /.*/  /                    latest
+  Tag        /.*/  /                    (Same as tag)
   ```
 - Enable the GitHub repo in Travis CI
-- add the GitHub as a remote to your local git repo
+- add the GitHub repo as a remote to your local git repo
 - Generate a [personal access token for GitHub](https://github.com/settings/tokens) with the "public_repo" permission. I name the token "CI-{REPO_NAME_HERE}".
 - Encrypt the token into .travis.yml
   ```sh
