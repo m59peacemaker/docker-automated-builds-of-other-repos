@@ -7,9 +7,9 @@ LATEST_RELEASE="$(curl -L -s -H "Accept: application/json" "https://github.com/$
 LATEST_VERSION="$(echo $LATEST_RELEASE | sed -e 's/.*\"tag_name":\"\([^\"]*\)\".*/\1/')"
 
 # dockerhub repo
-#RECENT_TAGS="$(curl -s -L -H "Accept: application/json" "https://hub.docker.com/v2/repositories/$SOURCE/tags?page_size=25")"
+#RECENT_TAGS="$(curl -s -L -H "Accept: application/json" "https://hub.docker.com/v2/repositories/$SOURCE/tags?page_size=100")"
 # find the tag you're interested in, extract the version
 # i.e. "name": "9.5.0-alpine" => 9.5.0
-#LATEST_VERSION="$(echo "$RECENT_TAGS" | grep -oP '(?<="name"\: ")([0-9]\.?){3,}(?=-alpine")')"
+#LATEST_VERSION="$(echo "$RECENT_TAGS" | grep -oP '(?<="name"\: ")([0-9]\.?){3,}(?=-alpine")' | sort --version-sort | tail -1)"
 
 printf "$LATEST_VERSION"
