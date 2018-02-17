@@ -2,11 +2,15 @@
 
 . ./scripts/vars
 
-# github repo
-LATEST_RELEASE="$(curl -L -s -H "Accept: application/json" "https://github.com/$SOURCE/releases/latest")"
-LATEST_VERSION="$(echo $LATEST_RELEASE | sed -e 's/.*\"tag_name":\"\([^\"]*\)\".*/\1/')"
+# github repo latest tag
+TAGS="$(curl --location --silent -H "Accept: application/json" "https://api.github.com/repos/$SOURCE/tags")"
+LATEST_VERSION="$(echo "$TAGS" | grep '"name"' | head -1 | sed -e 's/.*\"name\": \"\([^\"]\+\)\".*/\1/')"
 
-# dockerhub repo
+# github repo latest release
+#LATEST_RELEASE="$(curl -L -s -H "Accept: application/json" "https://github.com/$SOURCE/releases/latest")"
+#LATEST_VERSION="$(echo $LATEST_RELEASE | sed -e 's/.*\"tag_name":\"\([^\"]*\)\".*/\1/')"
+
+# dockerhub repo latest matching tag
 #RECENT_TAGS="$(curl -s -L -H "Accept: application/json" "https://hub.docker.com/v2/repositories/$SOURCE/tags?page_size=100")"
 # find the tag you're interested in, extract the version
 # i.e. "name": "9.5.0-alpine" => 9.5.0
